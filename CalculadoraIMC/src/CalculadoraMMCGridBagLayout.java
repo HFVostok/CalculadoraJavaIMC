@@ -16,15 +16,18 @@ public class CalculadoraMMCGridBagLayout {
         frame = new JFrame("Calculadora IMC"); // Título da janela
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); // Fechar a janela encerra o programa
         frame.setLayout(new GridBagLayout()); // Configurando o layout da janela como GridBagLayout
-        frame.getContentPane().setBackground(new Color(173, 216, 230)); 
+        frame.getContentPane().setBackground(new Color(173, 216, 230));
+
+        frame.setSize(250, 250);
+
 
         // Configurando restrições para componentes no layout GridBag
         GridBagConstraints ppcimc = new GridBagConstraints();
+   
         ppcimc.gridx = 0;
         ppcimc.gridy = 0;
         ppcimc.fill = GridBagConstraints.HORIZONTAL;
         ppcimc.insets = new Insets(5, 5, 5, 5); // Espaçamento interno dos componentes
-        
 
         // Adicionando rótulos "Peso (kg)" e "Altura (m)" na janela
         frame.add(new JLabel("Peso (kg): "), ppcimc);
@@ -60,7 +63,7 @@ public class CalculadoraMMCGridBagLayout {
         calculateButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                calcularMMC(); // Quando o botão é clicado, chama a função calcularIMC
+                calcularIMC(); // Quando o botão é clicado, chama a função calcularIMC
             }
         });
 
@@ -69,12 +72,12 @@ public class CalculadoraMMCGridBagLayout {
     }
 
     // Função para calcular o MMC
-    private void calcularMMC() {
+    private void calcularIMC() {
         try {
             // Lê os valores dos campos de entrada como números de ponto flutuante
             float numero1 = Float.parseFloat(inputField1.getText());
             float numero2 = Float.parseFloat(inputField2.getText());
-            float mmc = calcularMMC(numero1, numero2); // Chama a função para calcular o MMC
+            float mmc = calcularIMC(numero1, numero2); // Chama a função para calcular o MMC
 
             // Exibe o resultado na forma de texto no rótulo
             resultLabel.setText("O peso: " + numero1 + " e Altura: " + numero2 + " é: " + mmc);
@@ -85,14 +88,9 @@ public class CalculadoraMMCGridBagLayout {
     }
 
     // Função para calcular o MMC
-    private float calcularMMC(float numero1, float numero2) {
+    private float calcularIMC(float numero1, float numero2) {
         float mmc = numero1 / (numero2 * numero2); // Cálculo inicial
 
-        // Enquanto o resultado não for divisível pelo primeiro número, adiciona o
-        // primeiro número
-        while (mmc % numero1 != 0) {
-            mmc += numero1;
-        }
 
         return mmc; // Retorna o resultado do MMC
     }
