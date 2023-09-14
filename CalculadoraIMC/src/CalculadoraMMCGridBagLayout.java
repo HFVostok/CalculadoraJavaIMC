@@ -18,7 +18,7 @@ public class CalculadoraMMCGridBagLayout {
         frame.setLayout(new GridBagLayout()); // Configurando o layout da janela como GridBagLayout
         frame.getContentPane().setBackground(new Color(173, 216, 230));
 
-        frame.setSize(250, 250);
+        frame.setSize(500, 500);
 
 
         // Configurando restrições para componentes no layout GridBag
@@ -67,7 +67,7 @@ public class CalculadoraMMCGridBagLayout {
             }
         });
 
-        frame.pack(); // Ajusta o tamanho da janela automaticamente
+      
         frame.setVisible(true); // Torna a janela visível
     }
 
