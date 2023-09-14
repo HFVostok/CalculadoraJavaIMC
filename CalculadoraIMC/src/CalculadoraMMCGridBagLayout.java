@@ -16,6 +16,7 @@ public class CalculadoraMMCGridBagLayout {
         frame = new JFrame("Calculadora IMC"); // Título da janela
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); // Fechar a janela encerra o programa
         frame.setLayout(new GridBagLayout()); // Configurando o layout da janela como GridBagLayout
+        frame.getContentPane().setBackground(new Color(173, 216, 230)); 
 
         // Configurando restrições para componentes no layout GridBag
         GridBagConstraints ppcimc = new GridBagConstraints();
@@ -23,6 +24,7 @@ public class CalculadoraMMCGridBagLayout {
         ppcimc.gridy = 0;
         ppcimc.fill = GridBagConstraints.HORIZONTAL;
         ppcimc.insets = new Insets(5, 5, 5, 5); // Espaçamento interno dos componentes
+        
 
         // Adicionando rótulos "Peso (kg)" e "Altura (m)" na janela
         frame.add(new JLabel("Peso (kg): "), ppcimc);
@@ -43,8 +45,9 @@ public class CalculadoraMMCGridBagLayout {
         // Configurando o botão "Calcular IMC"
         ppcimc.gridx = 0;
         ppcimc.gridy++;
-        ppcimc.gridwidth = 2; // Ocupa duas colunas
+        ppcimc.gridwidth = 2;
         calculateButton = new JButton("Calcular IMC"); // Texto no botão
+        calculateButton.setBackground(new Color(128, 0, 128)); // Define a cor para violeta
         frame.add(calculateButton, ppcimc);
 
         // Configurando o rótulo para exibir o resultado
@@ -57,7 +60,7 @@ public class CalculadoraMMCGridBagLayout {
         calculateButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                calcularMMC(); // Quando o botão é clicado, chama a função calcularMMC
+                calcularMMC(); // Quando o botão é clicado, chama a função calcularIMC
             }
         });
 
